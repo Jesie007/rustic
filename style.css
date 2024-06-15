@@ -1,0 +1,408 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "Assistant", sans-serif;
+}
+
+.signup {
+  background-color: #000;
+  text-align: center;
+  height: 5vh;
+  font-size: 1.2rem;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup-link:link,
+.signup-link:visited {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all, 0.2s;
+}
+
+.signup-link:hover,
+.signup-link:active {
+  text-decoration: underline;
+}
+
+/* Header section */
+
+.header {
+  background-image: url("./images/jocelyn-morales-JiqTLjzEH18-unsplash.jpg");
+  width: 100%;
+  height: 80vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-weight: 500;
+
+  position: relative;
+}
+
+.nav {
+  color: #495057;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  gap: 8rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+@media only screen and (max-width: 38.375em) {
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .heading-1 {
+    align-self: start;
+  }
+  .nav__lists {
+    gap: 1rem;
+    align-self: start;
+    margin-left: 2rem;
+  }
+  .nav__user {
+    gap: 1rem;
+    margin-top: -3rem;
+  }
+}
+
+.heading-1 {
+  font-size: 3rem;
+  padding: 1.2rem 2.2rem;
+  font-weight: 500;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #343a40;
+  font-family: inherit;
+}
+
+.nav__lists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 1.6rem;
+}
+
+.nav__list {
+  list-style: none;
+}
+
+.nav__user {
+  display: flex;
+  justify-content: end;
+  gap: 3rem;
+  font-size: 1.6rem;
+  margin-left: auto;
+  margin-right: 3rem;
+}
+
+.nav__users {
+  list-style: none;
+}
+
+.header-text {
+  width: 10%;
+  font-size: 1.4rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-1rem, -5rem);
+  color: #495057;
+}
+
+.concept {
+  max-height: auto;
+  padding: 3rem 6rem;
+  margin-top: 10rem;
+  /* margin-bottom: 10rem; */
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+  row-gap: 10rem;
+}
+
+.heading-2 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
+  font-size: 1.6rem;
+  padding: 0 3rem;
+  color: #495057;
+  align-self: center;
+}
+
+.concept-container {
+  grid-column: 3 / -1;
+  grid-row: 1 / 2;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: center;
+  color: #212529;
+}
+
+.concept-img {
+  grid-row: 2 / -1;
+  grid-column: 1 / span 5;
+  width: 100%;
+}
+
+/* product section */
+.products {
+  margin: 10rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3rem;
+  row-gap: 4rem;
+}
+
+.product__heading {
+  grid-column: 1 / -1;
+  padding: 0;
+}
+
+.product-img {
+  grid-column: 1 / 2;
+  width: 100%;
+}
+
+.product__container {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+@media only screen and (max-width: 45em) {
+  .product__container {
+    gap: 1rem;
+  }
+}
+
+.product__container .heading-2 {
+  padding: 0;
+  align-self: start;
+}
+
+.heading-sub {
+  color: #495057;
+  font-weight: 400;
+}
+
+.text {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+@media only screen and (max-width: 45em) {
+  .text {
+    line-height: 1.3;
+  }
+}
+
+.btn-more {
+  border: none;
+  padding: 1.2rem;
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+  width: 80%;
+  transition: all 0.2s;
+}
+
+@media only screen and (max-width: 45em) {
+  .btn-more {
+    width: 100%;
+    border: none;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+}
+
+.btn-more:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+/* gift section */
+.gift {
+  /* padding: 3rem 6rem; */
+  margin: 10rem auto;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto repeat(4, 1fr);
+  grid-row-gap: 3rem;
+  grid-column-gap: 3rem;
+  justify-content: center;
+}
+
+.gift__img {
+  width: 100%;
+}
+
+.gift__heading {
+  grid-row: 1 / 2;
+  grid-column: 1 / -1;
+}
+
+.gift__img--1 {
+  grid-row: 2 / -1;
+  grid-column: 1 / 2;
+}
+
+.gift__text-container {
+  grid-row: 2 / 3;
+  grid-column: 4 / -1;
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-weight: 500;
+  justify-self: start;
+  align-items: start;
+}
+
+.btn-view {
+  display: block;
+  width: 20%;
+  border-radius: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
+  align-self: start;
+  margin-left: -3rem;
+}
+
+@media only screen and (max-width: 71.31em) {
+  .btn-view {
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 45em) {
+  .btn-view {
+    font-size: 1.4rem;
+  }
+}
+
+.gift__img--2 {
+  grid-row: 3 / -1;
+  grid-column: 4 / -1;
+  margin-right: 2rem;
+  display: block;
+  padding-right: 2rem;
+  align-self: end;
+}
+
+.news {
+  display: flex;
+  gap: 12rem;
+  margin: 10rem auto;
+}
+
+.news___text {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  align-items: start;
+}
+
+.number {
+  margin-right: 2rem;
+}
+
+.btn-news {
+  border: none;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  width: 20%;
+  padding: 0;
+  background-color: #fff;
+  font-family: inherit;
+  margin-left: -2rem;
+}
+
+.btn-news:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 20vw auto auto 20vw;
+
+  justify-items: center;
+
+  align-items: center;
+  margin-bottom: 5rem;
+  column-gap: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.footer__store,
+.footer__help,
+.footer__follow {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heading-3 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.footer__help {
+  margin-right: 6rem;
+}
+
+.footer__email {
+  justify-items: end;
+  margin-top: 2rem;
+}
+
+.footer__input {
+  margin-top: 1.2rem;
+  border: none;
+  border-bottom: 1px solid #000;
+  width: 70%;
+  font-family: inherit;
+  padding-bottom: 1rem;
+  font-size: 1.5rem;
+}
