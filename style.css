@@ -63,16 +63,17 @@ body {
 .nav {
   color: #495057;
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  align-self: center;
   gap: 8rem;
-
-  position: sticky;
-  top: 0;
+  width: 100%;
+  height: 6rem;
   z-index: 1000;
 }
 
+.nav.sticky {
+  position: fixed;
+}
 @media only screen and (max-width: 38.375em) {
   .nav {
     display: flex;
@@ -119,7 +120,8 @@ body {
 
 .nav__user {
   display: flex;
-  justify-content: end;
+  justify-items: end;
+  align-items: end;
   gap: 3rem;
   font-size: 1.6rem;
   margin-left: auto;
