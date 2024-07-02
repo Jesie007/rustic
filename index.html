@@ -30,21 +30,56 @@
 
         <ul class="nav__lists">
           <li class="nav__list">
-            <a href="#" class="header__link">Concept</a>
+            <a href="#concept--1" class="header__link">Concept</a>
           </li>
           <li class="nav__list">
-            <a href="#" class="header__link">Production</a>
+            <a href="#product--1" class="header__link">Products</a>
           </li>
-          <li class="nav__list"><a href="#" class="header__link">Gift</a></li>
-          <li class="nav__list"><a href="#" class="header__link">News</a></li>
+          <li class="nav__list">
+            <a href="#gift--1" class="header__link">Gift</a>
+          </li>
+          <li class="nav__list">
+            <a href="#news--1" class="header__link">News</a>
+          </li>
           <li class="nav__list">
             <a href="#" class="header__link">Instagram</a>
           </li>
         </ul>
 
         <ul class="nav__user">
-          <li class="nav__users"><a href="#" class="header__link">Login</a></li>
-          <li class="nav__users"><a href="#" class="header__link">Cart</a></li>
+          <li class="nav__users">
+            <a href="#" class="header__link" id="openLoginPopup">Login</a>
+          </li>
+
+          <div id="loginPopup" class="popup">
+            <div class="popup-content">
+              <span class="close">&times;</span>
+              <h2 class="login-text">Login</h2>
+              <form id="loginForm">
+                <label for="username" class="login-label">Username:</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  class="login-input"
+                  required
+                />
+                <label for="password" class="login-label">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="login-input"
+                  required
+                />
+                <button type="submit" class="btn-login">Login</button>
+              </form>
+            </div>
+          </div>
+
+          <li class="nav__users">
+            <a href="cart.html" target="_blank" class="header__link">Cart</a>
+          </li>
         </ul>
       </nav>
       <p class="header-text">
@@ -54,7 +89,7 @@
 
     <!-- concept section -->
 
-    <section class="concept">
+    <section class="concept" id="concept--1">
       <h2 class="heading-2">Concept</h2>
       <div class="concept-container">
         <p class="concept-title">To everything that comes with time</p>
@@ -78,7 +113,7 @@
     </section>
 
     <!-- product section -->
-    <section class="products">
+    <section class="products" id="product--1">
       <h2 class="product__heading heading-2">Products</h2>
       <img
         src="./images/image-2.webp"
@@ -95,12 +130,14 @@
           flowers and fresh fruits blooming in a misty forest. Feel the gentle
           sunlight shining through the forest with your fingertips.
         </p>
-        <button class="btn-more">View More &rarr;</button>
+        <button class="btn-more">
+          <a href="details.html" target="_blank">View More &rarr;</a>
+        </button>
       </div>
     </section>
 
     <!-- Gift section -->
-    <section class="gift">
+    <section class="gift" id="gift--1">
       <h2 class="gift__heading heading-2">Gift</h2>
       <div class="gift__text-container">
         <p class="text">
@@ -123,7 +160,7 @@
     </section>
 
     <!-- news section -->
-    <section class="news">
+    <section class="news" id="news--1">
       <h2 class="news__heading heading-2">News</h2>
       <div class="news___text">
         <p class="text">
@@ -172,22 +209,14 @@
           When you first sign up for our newsletter you will receive a 10% OFF
           code to use on your order.
         </p>
-        <input type="text" placeholder="Email" class="footer__input" required />
+        <input
+          type="text"
+          placeholder="Email"
+          class="footer__input"
+          class="login-input"
+          required
+        />
       </div>
     </footer>
-
-    <script>
-      window.addEventListener("scroll", function () {
-        const nav = document.getElementById("nav");
-        const bottomOfPage =
-          window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
-
-        if (bottomOfPage) {
-          nav.classList.remove("sticky");
-        } else {
-          nav.classList.add("sticky");
-        }
-      });
-    </script>
   </body>
 </html>

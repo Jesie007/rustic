@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <style>
+      .more-details {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #666;
+      }
+    </style>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="more-details">
+      <!-- <h2 class="product__heading heading-2">Products</h2>
+      <img
+        src="./images/image-2.webp"
+        alt="handwash picture"
+        class="product-img"
+      />
+      <div class="product__container">
+        <h2 class="heading-2">Aromatic Hand Wash / Foggy Woods</h2>
+        <h4 class="heading-sub">Aromatic Hand Wash / Foggy Woods</h4>
+        <p class="text">
+          Contains 99.4% natural ingredients. Moisturizes and leaves your hands
+          feeling light and smooth after washing. The scent of essential oils
+          based on cedarwood, ylang-ylang, and mandarin evokes the scent of
+          flowers and fresh fruits blooming in a misty forest. Feel the gentle
+          sunlight shining through the forest with your fingertips.
+        </p> -->
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const moreDetails = document.querySelector(".more-details");
+
+        const productDetails = JSON.parse(
+          localStorage.getItem("productDetails")
+        );
+
+        if (productDetails) {
+          productDetails.forEach((detail) => {
+            const markup = `
+              <div class="product__container">
+                <img src="${detail.image_link}" alt="${
+              detail.name
+            }" class="product-img">
+                <h2 class="heading-2">${detail.category || "Category"}</h2>
+                <h4 class="heading-sub">${detail.name}</h4>
+                <p class="text">${
+                  detail.description || "No description available."
+                }</p>
+              </div>
+            `;
+            moreDetails.insertAdjacentHTML("beforeend", markup);
+          });
+        } else {
+          moreDetails.textContent = "No additional details available.";
+        }
+      });
+    </script>
+  </body>
+</html>

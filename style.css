@@ -46,6 +46,81 @@ body {
   text-decoration: underline;
 }
 
+/* Login form */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 2rem 4rem;
+  border: 1px solid #888;
+  width: 100%;
+  height: 35%;
+  max-width: 350px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.login-text {
+  font-size: 3rem;
+}
+
+.login-label {
+  font-size: 1.6rem;
+  margin-left: auto;
+}
+
+.login-input {
+  display: inline-block;
+  margin-bottom: 2rem;
+  height: 3rem;
+}
+
+.btn-login {
+  display: block;
+  font-size: 1.6rem;
+  border: none;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: #999;
+  padding: 1rem;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 /* Header section */
 
 .header {
@@ -232,16 +307,33 @@ body {
   }
 }
 
-.btn-more {
+/* .btn-more {
   border: none;
   padding: 1.2rem;
   border: 1px solid #000;
-  background-color: #fff;
-  color: #000;
+
   width: 80%;
   transition: all 0.2s;
+} */
+
+.btn-more a:link,
+.btn-more a:visited {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.2s;
+  border: none;
+  display: block;
+  padding: 2rem;
+  background-color: #fff;
+  font-size: 1.5rem;
+  width: 100%;
 }
 
+.btn-more a:hover,
+.btn-more a:active {
+  background-color: #000;
+  color: #fff;
+}
 @media only screen and (max-width: 45em) {
   .btn-more {
     width: 100%;
@@ -251,10 +343,10 @@ body {
   }
 }
 
-.btn-more:hover {
+/* .btn-more:hover {
   background-color: #000;
   color: #fff;
-}
+} */
 
 /* gift section */
 .gift {

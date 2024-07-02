@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <style>
+      /* styles.css */
+
+      .products,
+      .cart {
+        width: 300px;
+        margin: 20px;
+      }
+
+      .product,
+      .cart-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="products">
+      <div class="product" data-id="1" data-name="Product 1" data-price="10">
+        <h3>Product 1</h3>
+        <p>$10</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product" data-id="2" data-name="Product 2" data-price="20">
+        <h3>Product 2</h3>
+        <p>$20</p>
+        <button class="add-to-cart">Add to Cart</button>
+      </div>
+      <!-- Add more products as needed -->
+    </div>
+
+    <div class="cart">
+      <h2>Cart</h2>
+      <div class="cart-items"></div>
+      <p>Total: $<span class="cart-total">0</span></p>
+      <button class="checkout">Checkout</button>
+    </div>
+
+    <script>
+      // script.js
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cartItems = [];
+        const products = document.querySelectorAll(".product");
+        const cartContainer = document.querySelector(".cart-items");
+        const cartTotal = document.querySelector(".cart-total");
+
+        // Function to update cart display
+        const updateCartDisplay = () => {
+          cartContainer.innerHTML = "";
+          cartItems.forEach((item, index) => {
+            const cartItem = document.createElement("div");
+            cartItem.classList.add("cart-item");
+            cartItem.innerHTML = `
+        <p>${item.name} - $${item.price}</p>
+        <button class="remove-from-cart" data-index="${index}">Remove</button>
+      `;
+            cartContainer.appendChild(cartItem);
+          });
+
+          const total = cartItems.reduce((sum, item) => sum + item.price, 0);
+          cartTotal.textContent = total.toFixed(2);
+        };
+
+        // Function to add item to cart
+        const addToCart = (product) => {
+          const id = product.getAttribute("data-id");
+          const name = product.getAttribute("data-name");
+          const price = parseFloat(product.getAttribute("data-price"));
+          cartItems.push({ id, name, price });
+          updateCartDisplay();
+        };
+
+        // Function to remove item from cart
+        const removeFromCart = (index) => {
+          cartItems.splice(index, 1);
+          updateCartDisplay();
+        };
+
+        // Event listener for add to cart buttons
+        products.forEach((product) => {
+          product
+            .querySelector(".add-to-cart")
+            .addEventListener("click", () => {
+              addToCart(product);
+            });
+        });
+
+        // Event listener for remove from cart buttons
+        cartContainer.addEventListener("click", (event) => {
+          if (event.target.classList.contains("remove-from-cart")) {
+            const index = event.target.getAttribute("data-index");
+            removeFromCart(index);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
